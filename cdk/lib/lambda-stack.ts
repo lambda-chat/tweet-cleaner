@@ -44,5 +44,10 @@ export class LambdaStack extends cdk.Stack {
       schedule: events.Schedule.expression('cron(0 8 * * ? *)'),
     });
     rule.addTarget(new targets.LambdaFunction(lambdaFn));
+
+    const input = events.RuleTargetInput.fromObject({
+      API_KEY: environment.LAMBDA_API_KEY,
+    });
+    input.bind(rule);
   }
 }
