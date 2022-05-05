@@ -1,5 +1,5 @@
 import os
-from base64 import b64decode, b64encode
+from base64 import b64decode
 from functools import lru_cache
 from typing import Optional
 

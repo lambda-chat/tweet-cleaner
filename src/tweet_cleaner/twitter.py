@@ -68,7 +68,7 @@ class TwitterClient:
         res.raise_for_status()
         return list(map(Tweet, json.loads(res.text)))
 
-    def destory(self, tweet: Tweet) -> int:
+    def destroy(self, tweet: Tweet) -> int:
         url = f"https://api.twitter.com/1.1/statuses/destroy/{tweet.tweet_id}.json"
         res = self.session.post(url)
         res.raise_for_status()

@@ -15,8 +15,9 @@
 
 ```sh
 .devcontainer/preCreateCommand.sh  # copy sample settings
-Open Folder in Container (Remote-Container Extension)
 ```
+
+Then, use the command `Open Folder in Container` (Remote-Container Extension)
 
 ## Deployment
 

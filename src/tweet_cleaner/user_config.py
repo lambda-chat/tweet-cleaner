@@ -8,7 +8,7 @@ from .twitter import Tweet
 
 
 @dataclass(frozen=True)
-class Config:
+class UserConfig:
     screen_name: str
     days_wait: int
     favorite_threshold: int
@@ -16,7 +16,7 @@ class Config:
     destroy_type: str
 
     @classmethod
-    def from_user_config_key(cls, user_config_key: str) -> Config:
+    def from_user_config_key(cls, user_config_key: str) -> UserConfig:
         configs = os.environ[user_config_key].split(",")
         screen_name, days_wait, favorite_threshold, retweet_threshold, destroy_type = configs
         return cls(
@@ -28,7 +28,7 @@ class Config:
         )
 
 
-DESTROY_RULES: dict[str, Callable[[Config, Tweet], bool]] = {
+DESTROY_RULES: dict[str, Callable[[UserConfig, Tweet], bool]] = {
     "owner": (
         lambda config, tweet: (
             tweet.elapsed.days >= config.days_wait
