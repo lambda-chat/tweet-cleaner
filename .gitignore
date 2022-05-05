@@ -1,0 +1,37 @@
+### Python ###
+__pycache__/
+*.py[cod]
+
+build/
+dist/
+sdist/
+*.egg-info/
+*.egg
+requirements.txt
+
+# Unit test / coverage reports
+.pytest_cache/
+
+# Environments
+.env
+.venv/
+
+## JavaScript
+**/node_modules/
+*.js
+!jest.config.js
+*.d.ts
+
+# CDK asset staging directory
+.cdk.staging
+cdk.out
+**/python_packages
+
+### VisualStudioCode ###
+.vscode/settings.json
+.vscode/extensions.json
+
+# Devcontainer
+.devcontainer/devcontainer.json
+.devcontainer/docker-compose.yml
+.cache

@@ -1,0 +1,22 @@
+{
+    "name": "tweet-cleaner",
+    "dockerComposeFile": "./docker-compose.yml",
+    "overrideCommand": false,
+    "workspaceFolder": "/workspace/tweet-cleaner",
+    "service": "dev",
+    "extensions": [
+        // python
+        "ms-python.vscode-pylance",
+        "njpwerner.autodocstring",
+        "ms-toolsai.jupyter",
+        // git
+        "donjayamanne.githistory",
+        "eamodio.gitlens",
+        // markdown
+        "DavidAnson.vscode-markdownlint",
+        // docker
+        "ms-azuretools.vscode-docker",
+    ],
+    "remoteUser": "1000",
+    "postCreateCommand": "PASSWORD=tw .devcontainer/postCreateCommand.sh"
+}

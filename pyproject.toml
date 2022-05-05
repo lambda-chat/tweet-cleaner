@@ -1,0 +1,77 @@
+[tool.poetry]
+name = "tweet-cleaner"
+version = "0.1.0"
+description = "Customable Tweet Cleaner."
+authors = [
+    "lambda-chat <chat.algebrique@gmail.com>",
+]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+aws-lambda-powertools = "^1.25.10"
+boto3 = "^1.22.6"
+requests-oauthlib = "^1.3.1"
+
+[tool.poetry.dev-dependencies]
+flake8 = "^4.0.1"
+isort = "^5.9.3"
+pytest = "^6.2.5"
+pyproject-flake8 = "^0.0.1-alpha.2"
+black = "^21.10b0"
+python-dotenv = "^0.20.0"
+
+[build-system]
+requires = [
+    "poetry_core>=1.0.0",
+]
+build-backend = "poetry.core.masonry.api"
+
+[tool.flake8]
+## http://flake8.readthedocs.org/en/latest/warnings.html
+## http://pep8.readthedocs.org/en/latest/intro.html#error-codes
+ignore = ["W503", "W504"]
+max-line-length = 99
+exclude = [
+    ".git",
+    "__pycache__",
+    "old",
+    "build",
+    "dist",
+    ".venv",
+    "venv",
+]
+
+[tool.black]
+line-length = 99
+exclude = '''
+(
+    migrations
+    | .mypy_cache
+    | .pytest_cache
+    | .tox
+    | .venv
+)
+'''
+
+[tool.pyright]
+include = [
+    "tweet_cleaner",
+    "tests",
+]
+exclude = [
+    ".venv",
+    "**/__pycache__",
+]
+ignore = []
+stubPath = ""
+reportMissingImports = true
+reportMissingTypeStubs = false
+pythonVersion = "^3.9"
+executionEnvironments = []
+
+[tool.isort]
+include_trailing_comma = true
+line_length = 99
+multi_line_output = 3
+skip_glob = ["**/python_packages"]
