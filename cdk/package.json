@@ -8,7 +8,14 @@
     "build": "tsc",
     "watch": "tsc -w",
     "test": "jest",
-    "cdk": "cdk"
+    "cdk": "cdk",
+    "fix": "npm run -s format && npm run -s lint:fix",
+    "format": "prettier --write --loglevel=warn '{bin,lib}/**/*.{js,ts}'",
+    "lint": "eslint '{bin,lib}/**/*.{js,ts}'",
+    "lint:fix": "eslint --fix '{bin,lib}/**/*.{js,ts}'",
+    "lint:conflict": "eslint-config-prettier '{bin,lib}/**/*.{js,ts}'",
+    "preinstall": "typesync || :",
+    "prepare": "simple-git-hooks > /dev/null"
   },
   "dependencies": {
     "aws-cdk": "2.22.0",
@@ -18,11 +25,22 @@
     "source-map-support": "^0.5.16"
   },
   "devDependencies": {
+    "@types/dotenv": "^8.2.0",
     "@types/jest": "^26.0.10",
     "@types/node": "10.17.27",
+    "@types/prettier": "^2.3.2",
+    "@types/source-map-support": "^0.5.4",
+    "@typescript-eslint/eslint-plugin": "^4.31.1",
+    "@typescript-eslint/parser": "^4.31.1",
+    "eslint-config-airbnb": "18.2.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-prefer-arrow": "^1.2.3",
     "jest": "^26.4.2",
+    "prettier": "^2.4.0",
     "ts-jest": "^26.2.0",
     "ts-node": "^9.0.0",
-    "typescript": "~3.9.7"
+    "typescript": "~3.9.7",
+    "typesync": "^0.9.1"
   }
 }
