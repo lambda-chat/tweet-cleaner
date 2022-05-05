@@ -8,6 +8,7 @@ import * as iam from "aws-cdk-lib/aws-iam";
 import { config } from "dotenv";
 
 const environment = config().parsed as { [key: string]: string };
+
 export class LambdaStack extends cdk.Stack {
   constructor(scope: cdk.App, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
