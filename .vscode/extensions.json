@@ -1,0 +1,26 @@
+{
+    "recommendations": [
+        // python
+        "ms-python.vscode-pylance",
+        "njpwerner.autodocstring",
+        "ms-toolsai.jupyter",
+        // git
+        "donjayamanne.githistory",
+        "eamodio.gitlens",
+        // markdown
+        "DavidAnson.vscode-markdownlint",
+        // docker
+        "ms-azuretools.vscode-docker",
+        // typescript
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "msjsdiag.debugger-for-chrome",
+        "oderwat.indent-rainbow",
+        "stylelint.vscode-stylelint",
+        "wix.vscode-import-cost",
+        // VS Code
+        "VisualStudioExptTeam.vscodeintellicode",
+        "vscode-icons-team.vscode-icons",
+    ],
+    "unwantedRecommendations": []
+}
