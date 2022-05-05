@@ -22,3 +22,13 @@ Then, use the command `Open Folder in Container` (Remote-Container Extension)
 ## Deployment
 
 See `cdk/README.md`.
+
+## cf. Folder Structure
+
+```txt
+.devcontainer/  .. settings for Remote-Container extension
+.vscode/        .. settings for VS Code
+cdk/            .. AWS-CDK codes with TypeScript
+lambda/         .. handler that will be deployed
+src/            .. python package for this app
+```
