@@ -18,8 +18,6 @@ requirements.txt
 
 ## JavaScript
 **/node_modules/
-*.js
-!jest.config.js
 *.d.ts
 
 # CDK asset staging directory
@@ -29,7 +27,6 @@ cdk.out
 
 ### VisualStudioCode ###
 .vscode/settings.json
-.vscode/extensions.json
 
 # Devcontainer
 .devcontainer/devcontainer.json
