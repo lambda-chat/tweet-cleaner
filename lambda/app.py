@@ -4,7 +4,7 @@ from typing import Any, Literal, Optional, Union
 from aws_lambda_powertools.logging import Logger
 
 from tweet_cleaner.twitter import TwitterClient
-from tweet_cleaner.user_config import DESTROY_RULES, Config
+from tweet_cleaner.user_config import DESTROY_RULES, UserConfig
 
 logger = Logger(service="tweet-cleaner")
 
@@ -31,7 +31,7 @@ def handler(event, context) -> dict[str, Union[int, str, dict[str, str]]]:
     lambda_status = 200
 
     for user_config_key in USER_CONFIG_KEYS:
-        config = Config.from_user_config_key(user_config_key)
+        config = UserConfig.from_user_config_key(user_config_key)
         logger.info(config)
 
         client = TwitterClient(user_config_key)
@@ -58,7 +58,7 @@ def handler(event, context) -> dict[str, Union[int, str, dict[str, str]]]:
                                     "tweet_id": tweet.tweet_id,
                                     "created_at": tweet.created_at,
                                     "text": tweet.text,
-                                    "delete_status": client.destory(tweet),
+                                    "delete_status": client.destroy(tweet),
                                 }
                             )
                             discard_count += 1
