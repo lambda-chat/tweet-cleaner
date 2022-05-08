@@ -37,20 +37,22 @@ export class LambdaStack extends cdk.Stack {
         effect: iam.Effect.ALLOW,
         actions: ["kms:Decrypt"],
         resources: ["*"],
-      })
+      }),
     );
 
     const key = kms.Alias.fromAliasName(this, "kmsKey", "removeOldTweetsKey");
     key.grantDecrypt(lambdaFn);
 
     const rule = new events.Rule(this, "EveryJST1amEvent", {
-      schedule: events.Schedule.expression("cron(0 8 * * ? *)"),
+      schedule: events.Schedule.expression("cron(0 18 * * ? *)"),
     });
-    rule.addTarget(new targets.LambdaFunction(lambdaFn));
-
-    const input = events.RuleTargetInput.fromObject({
-      API_KEY: environment.LAMBDA_API_KEY,
-    });
-    input.bind(rule);
+    rule.addTarget(
+      new targets.LambdaFunction(
+        lambdaFn, 
+        {
+          event: events.RuleTargetInput.fromObject({api_key: environment.LAMBDA_API_KEY})
+        },
+      ),
+    );
   }
 }
