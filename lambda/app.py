@@ -24,7 +24,7 @@ def response(
 
 @logger.inject_lambda_context
 def handler(event, context) -> dict[str, Union[int, str, dict[str, str]]]:
-    if event.get("API_KEY", "") != os.environ["LAMBDA_API_KEY"]:
+    if event.get("api_key", "") != os.environ["LAMBDA_API_KEY"]:
         return response(status_code=401)
 
     USER_CONFIG_KEYS = os.environ["USER_CONFIG_KEYS"].split(",")
